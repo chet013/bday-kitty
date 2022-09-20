@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+      .main {
+        height: 100vh;
+      }
+
+      .start {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+      }
+
+      .title {
+            margin-bottom: 24px;
+      }
+
+      .start-button {
+            border: none;
+            font-size: 22px;
+            background: #0abd5b;
+            color: white;
+            border-radius: 50%;
+            padding: 20px;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+      }
+
+      .hide {
+        display: none !important;
+      }
+
+      .test-wrapper {
+        height: 100%;
+      }
+
+      .test {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+      }
+
+      .image-wrapper {
+          max-height: 50%;
+          position: relative;
+          width: 30vw;
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+      }
+
+      .image {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+      }
+
+      .test-button {
+        border: none;
+          font-size: 20px;
+          background: orange;
+          color: white;
+          border-radius: 50%;
+          padding: 20px;
+          aspect-ratio: 1 / 1;
+          cursor: pointer;
+          width: 16vw;
+      }
+  </style>
+</head>
+<body>
+    <main class="main">
+        <div class="start">
+            <h1 class="title">
+                Узнать насколько маленький котенок!
+            </h1>
+            <button
+                class="start-button"
+                onclick="start()"
+            >
+                Начать
+            </button>
+        </div>
+        <div class="test-wrapper">
+
+            <div class="test hide">
+                <div class="image-wrapper">
+                    <img
+                        class="image"
+                        src="src/images/king.jpg"
+                    />
+                </div>
+                <button
+                    class="test-button"
+                    onclick="check()"
+                >
+                    Сравнить
+                </button>
+                <div class="image-wrapper">
+                    <img
+                        class="image test-image"
+                        src=""
+                    />
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
