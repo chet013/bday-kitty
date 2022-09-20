@@ -1,97 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Little kitty</title>
     <style>
-      .main {
-        height: 100vh;
-      }
+        body {
+            margin: 0;
+        }
 
-      .start {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-      }
+        .main {
+            position: relative;
+            height: 100vh;
+            background-color: rgb(246, 152, 246);
+        }
 
-      .title {
-        margin-bottom: 24px;
-      }
+        .start {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
 
-      .start-button {
-        border: none;
-        font-size: 22px;
-        background: #0abd5b;
-        color: white;
-        border-radius: 50%;
-        padding: 20px;
-        aspect-ratio: 1 / 1;
-        cursor: pointer;
-      }
+        .title {
+            margin-bottom: 24px;
+        }
 
-      .hide {
-        display: none !important;
-      }
+        .hide {
+            display: none !important;
+        }
 
-      .test-wrapper {
-        height: 100%;
-      }
+        .hide-popup {
+            opacity: 0 !important;
+            transition: all ease-in-out 0.5s;
+        }
 
-      .test {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-      }
+        .test {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
 
-      .image-wrapper {
-        max-height: 50%;
-        position: relative;
-        width: 30vw;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
-      }
+        .image-wrapper {
+            max-height: 50%;
+            position: relative;
+            width: 30vw;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
 
-      .image {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        height: 100%;
-        transform: translate(-50%, -50%);
-      }
+        .image {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+        }
 
-      .test-button {
-        border: none;
-        font-size: 20px;
-        background: orange;
-        color: white;
-        border-radius: 50%;
-        padding: 20px;
-        aspect-ratio: 1 / 1;
-        cursor: pointer;
-        width: 16vw;
-      }
+        .finish-text-wrapper {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(255, 255, 59);
+        }
+
+        .finish-text {
+            background-color: rgb(246, 152, 246);
+            border: solid 4px rgb(5, 255, 218); /*финишный текст*/
+            border-radius: 35px;
+            font-size: 30px;
+            font-family: Comic Sans MS;
+            padding: 15px;
+            margin-top: 25%;
+        }
+
+        .popup {
+            border: solid 2px black;
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            top: 400px;
+            left: 40%;
+            font-family: Comic Sans MS;
+            font-size: 25px;
+            background-color: rgb(255, 255, 59);
+            padding: 10px;
+            transition: all ease-in-out 0.5s;
+            opacity: 1;
+        }
+
+        .popup-text {
+            text-align: center;
+            margin: 12px;
+        }
+
+        .start-button {
+            border: solid 1px black;
+            font-size: 22px;
+            background: #0abd5b;
+            color: white;
+            border-radius: 50%;
+            padding: 20px;
+            aspect-ratio: 1 / 1;
+            cursor: pointer;
+        }
+
+        .buttons-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .test-button {
+            border: solid 1px black;
+            font-size: 20px;
+            background: orange;
+            color: white;
+            border-radius: 50%;
+            width: 145px;
+            height: 143px;
+            margin: 10px;
+        }
+
+        .button-yes {
+            border: solid 1px black;
+            font-size: 20px;
+            background: rgb(162, 255, 0);
+            color: rgb(52, 28, 114);
+            border-radius: 50%;
+            width: 145px;
+            height: 143px;
+            margin: 10px;
+        }
+
+        .button-back {
+            border: solid 1px black;
+            font-size: 20px;
+            background: rgb(255, 0, 0);
+            color: rgb(52, 28, 114);
+            border-radius: 50%;
+            width: 145px;
+            height: 143px;
+            margin: 10px;
+        }
+
+        .btns:hover {
+            background: rgb(140, 101, 28);
+        }
+
+        .btns:active {
+            background: rgb(116, 140, 28);
+        }
     </style>
-  </head>
-  <body>
+    </head>
+    <body>
     <main class="main">
-      <div class="start">
-        <h1 class="title">Узнать насколько маленький котенок!</h1>
-        <button class="start-button" onclick="start()">Начать</button>
-      </div>
-      <div class="test-wrapper">
-        <div class="test hide">
-          <div class="image-wrapper">
-            <img class="image" src="src/images/king.jpg" />
-          </div>
-          <button class="test-button" onclick="check()">Сравнить</button>
-          <div class="image-wrapper">
-            <img class="image test-image" src="" />
-          </div>
+        <div class="start">
+            <h1 class="title">
+                Узнать насколько маленький котенок!
+            </h1>
+            <button
+                class="btns start-button"
+                onclick="start()"
+            >
+                Начать
+            </button>
         </div>
-      </div>
+        <div class="test-wrapper">
+            <div class="finish-text-wrapper hide">
+                <h1 class="finish-text">Ура!!! <br> Котенок и правда настолько мал!</h1>
+            </div>
+            <div class="test hide">
+                <div class="image-wrapper">
+                    <img
+                        class="image"
+                        src="src/images/king.jpg"
+                    />
+                </div>
+                <div class="buttons-wrapper">
+                    <div>
+                        <button
+                            class=" btns test-button"
+                            onclick="check()"
+                        >
+                            Вперед
+                        </button>
+
+                        <button 
+                            class="btns button-back"
+                            onclick="back()"
+                        >
+                            Назад :(
+                        </button>
+                    </div>
+                    <button 
+                        class="btns button-yes"
+                        onclick="test()"
+                        >
+                        Дааа!!!
+                    </button>
+                </div>
+                <div class="image-wrapper">
+                    <img
+                        class="image test-image"
+                        src=""
+                    />
+                </div>
+                
+            </div>
+        </div>
+        <div class="popup hide-popup">
+            <p class="popup-text">Ну нееет. Котенок намнооого меньше!</p>
+        </div>
     </main>
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
